@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06C3E2441A8A8CC800D4F7EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2431A8A8CC800D4F7EB /* User.m */; };
+		06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2461A8A8E4800D4F7EB /* Reservation.m */; };
 		0AEE06801A8A880900197CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE067F1A8A880900197CAA /* main.m */; };
 		0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06821A8A880900197CAA /* AppDelegate.m */; };
 		0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */; };
@@ -45,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06C3E2421A8A8CC800D4F7EB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		06C3E2431A8A8CC800D4F7EB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		06C3E2451A8A8E4800D4F7EB /* Reservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reservation.h; sourceTree = "<group>"; };
+		06C3E2461A8A8E4800D4F7EB /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		0AEE067A1A8A880900197CAA /* YMMYAPPMM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMMYAPPMM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE067E1A8A880900197CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE067F1A8A880900197CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -137,11 +143,15 @@
 			children = (
 				0AEE06811A8A880900197CAA /* AppDelegate.h */,
 				0AEE06821A8A880900197CAA /* AppDelegate.m */,
+				06C3E2451A8A8E4800D4F7EB /* Reservation.h */,
+				06C3E2461A8A8E4800D4F7EB /* Reservation.m */,
 				0AEE06C71A8A89C300197CAA /* Restaurant.h */,
 				0AEE06C81A8A89C300197CAA /* Restaurant.m */,
 				0AEE06871A8A880900197CAA /* ViewController.h */,
 				0AEE06881A8A880900197CAA /* ViewController.m */,
 				0AEE068A1A8A880900197CAA /* Main.storyboard */,
+				06C3E2421A8A8CC800D4F7EB /* User.h */,
+				06C3E2431A8A8CC800D4F7EB /* User.m */,
 				0AEE068D1A8A880900197CAA /* Images.xcassets */,
 				0AEE068F1A8A880900197CAA /* LaunchScreen.xib */,
 				0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */,
@@ -299,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */,
 				0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */,
 				0AEE06C91A8A89C300197CAA /* Restaurant.m in Sources */,
+				06C3E2441A8A8CC800D4F7EB /* User.m in Sources */,
 				0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */,
 				0AEE06891A8A880900197CAA /* ViewController.m in Sources */,
 				0AEE06801A8A880900197CAA /* main.m in Sources */,
@@ -502,6 +514,7 @@
 				0AEE06A21A8A880A00197CAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AEE06A31A8A880A00197CAA /* Build configuration list for PBXNativeTarget "YMMYAPPMMTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +523,7 @@
 				0AEE06A51A8A880A00197CAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

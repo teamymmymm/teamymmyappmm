@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "User.h"
+#import "Restaurant.h"
+#import "Reservation.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +30,12 @@
 
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    [User registerSubclass];
+    [Restaurant registerSubclass];
+    [Reservation registerSubclass];
+
+
 
     // ...
     return YES;
