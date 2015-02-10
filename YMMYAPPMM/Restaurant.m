@@ -18,6 +18,8 @@
 @dynamic createdAt;
 @dynamic updatedAt;
 @dynamic objectId;
+@dynamic isActive;
+
 
 + (void)load
 {
@@ -29,4 +31,14 @@
     return @"Restaurant";
 }
 
+
++ (void)retreiveRestaurant:(void (^)(NSArray *array))complete
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
+
+   // [query whereKey:@"name" co containedIn:<#(NSArray *)#>]
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        complete(objects);
+    }];
+}
 @end

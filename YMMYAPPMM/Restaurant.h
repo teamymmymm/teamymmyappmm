@@ -18,6 +18,7 @@
 @property (retain, nonatomic) NSDate *createdAt;
 @property (retain, nonatomic) NSDate *updatedAt;
 @property (retain, nonatomic) NSString *objectId;
+@property BOOL isActive;
 
 + (NSString *)parseClassName;
 
