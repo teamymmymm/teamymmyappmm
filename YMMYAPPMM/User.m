@@ -25,7 +25,15 @@
     [self registerSubclass];
 }
 
++ (User *)user
+{
+    return (User *)[PFUser user];
+}
 
++ (User *) currentUser
+{
+    return (User *)[PFUser currentUser];
+}
 
 + (NSString *)parseClassName
 {

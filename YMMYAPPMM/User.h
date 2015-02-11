@@ -12,16 +12,16 @@
 
 @property (retain) NSString *objectId;
 @property (retain) NSString *firstName;
-@property (retain, nonatomic) NSDate *createdAt;
-@property (retain, nonatomic) NSDate *updatedAt;
+@property (retain) NSDate *createdAt;
+@property (retain) NSDate *updatedAt;
 @property (retain) NSString *lastName;
-@property (retain, nonatomic) NSString *email;
-@property (retain, nonatomic) NSString *password;
+@property (retain) NSString *email;
+@property (retain) NSString *password;
 @property (retain) NSString *phoneNumber;
 
 
 + (NSString *)parseClassName;
-
+//+ (User *)user;
 
 
 @end

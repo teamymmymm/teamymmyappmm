@@ -189,7 +189,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="onLoginButtonPressed:" destination="Ee1-Kc-uze" eventType="touchUpInside" id="XeT-oS-gUV"/>
-                                    <action selector="onSignupButtonPressed:" destination="Ee1-Kc-uze" eventType="touchUpInside" id="Vht-zw-p3P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-74-w9s">

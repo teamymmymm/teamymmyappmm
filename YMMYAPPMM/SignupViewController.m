@@ -8,6 +8,7 @@
 
 #import "SignupViewController.h"
 #import "User.h"
+#import "Restaurant.h"
 
 @interface SignupViewController () <UITextFieldDelegate>
 
@@ -28,10 +29,21 @@
     [super viewDidLoad];
 
 
-    self.firstNameTextField.delegate = self;
+
 
 
 }
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+#pragma mark - UITextField(s) -
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -48,14 +60,8 @@
     return YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 
-    [self.navigationController setNavigationBarHidden:NO];
-}
-
-
+#pragma mark - IBAction(s) -
 
 - (IBAction)onSignupButtonPressed:(UIButton *)sender
 {
@@ -72,23 +78,37 @@
     }
     else
     {
-        User *user = [[User alloc] init];
-        user.firstName = firstname;
-        user.lastName = lastname;
+        User *user = [User user];
+
+        //user.firstName = firstname;
+        //user.lastName = lastname;
         user.email = email;
-        user.phoneNumber = phonenumber;
+        //user.phoneNumber = phonenumber;
         user.password = password;
         user.username = email;
+
+
 
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (error) {
                 NSLog(@"%@", error);
+
             }
             else
             {
+                User *user = [User currentUser];
+                user.firstName = firstname;
+                user.lastName = lastname;
+                user.phoneNumber = phonenumber;
+
+                [user saveInBackground];
+
+
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }];
+
+
     }
 }
 
