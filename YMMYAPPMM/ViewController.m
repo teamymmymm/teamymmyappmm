@@ -22,7 +22,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
+
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser)
+    {
+        NSLog(@"%@", currentUser);
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
 
 }
 
@@ -39,21 +48,5 @@
 {
     return 1;
 }
-=======
-    // Do any additional setup after loading the view, typically from a nib.
 
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser)
-    {
-        NSLog(@"%@", currentUser);
-    }
-    else
-    {
-        [self performSegueWithIdentifier:@"showLogin" sender:self];
-    }
-}
-
-
-
->>>>>>> e1faa4dc05a31f1f6e0581fbce67769b2d2c824e
 @end

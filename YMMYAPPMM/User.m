@@ -26,9 +26,9 @@
     [self registerSubclass];
 }
 
-+ (User *)user
++ (User *) user
 {
-    return (User *)[PFUser user];
+    return [[User alloc]init];
 }
 
 + (User *) currentUser

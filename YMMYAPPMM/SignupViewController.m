@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property User *user;
 
 
 @end
@@ -78,66 +79,36 @@
     }
     else
     {
-        User *userName = [User user];
 
-        userName.email = email;
-        userName.password = password;
-        userName.username = email;
-//        userName.firstName = firstname;
-//        userName.lastName = lastname;
-//        userName.phoneNumber = phonenumber;
+        self.user = [User user];
 
-
-
+        self.user.email = email;
+        self.user.password = password;
+        self.user.username = email;
+        self.user.firstName = firstname;
+        self.user.lastName = lastname;
+        self.user.phoneNumber = phonenumber;
 
 
+        [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 
-        [userName signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (error) {
+            if (error)
+            {
                 NSLog(@"%@", error);
 
             }
             else
             {
-                User *user = [User user];
-                user.firstName = firstname;
-                user.lastName = lastname;
-                user.phoneNumber = phonenumber;
-
-                [user saveInBackground];
 
 
-                [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }];
+
+        [self.navigationController popToRootViewControllerAnimated:YES];  // go back and move into block when have time
 
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
