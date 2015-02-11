@@ -30,4 +30,6 @@
 
 + (NSString *)parseClassName;
 
++ (void)retreiveRestaurantCount:(void (^)(NSArray *array))complete;
+
 @end

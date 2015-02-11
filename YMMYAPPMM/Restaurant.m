@@ -7,6 +7,7 @@
 //
 
 #import "Restaurant.h"
+#import <Parse/Parse.h>
 
 @implementation Restaurant
 
@@ -38,13 +39,15 @@
 }
 
 
-+ (void)retreiveRestaurant:(void (^)(NSArray *array))complete
++ (void)retreiveRestaurantCount:(void (^)(NSArray *array))complete
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
-
-    // [query whereKey:@"name" co containedIn:<#(NSArray *)#>]
+    //[query whereKeyExists:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         complete(objects);
+
     }];
 }
+
+
 @end

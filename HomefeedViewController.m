@@ -8,6 +8,7 @@
 
 #import "HomefeedViewController.h"
 #import "DetailHomefeedTableViewCell.h"
+#import "Restaurant.h"
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -22,13 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [Restaurant retreiveRestaurantCount:^(NSArray *array) {
+        self.restaurantsArray = [array mutableCopy];
+        [self.restaurantTableView reloadData];
+    }];
 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    
     return self.restaurantsArray.count ;
 }
 
@@ -41,6 +45,9 @@
 
     return cell;
 }
+
+/*------------------------------EnterText---------------------------*/
+
 
 /*
 #pragma mark - Navigation
