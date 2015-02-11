@@ -15,6 +15,7 @@
 @dynamic objectId;
 @dynamic firstName;
 @dynamic lastName;
+@dynamic username;
 @dynamic email;
 @dynamic password;
 @dynamic phoneNumber;

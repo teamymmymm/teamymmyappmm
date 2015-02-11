@@ -15,13 +15,11 @@
 @property (retain) NSDate *createdAt;
 @property (retain) NSDate *updatedAt;
 @property (retain) NSString *lastName;
-@property (retain) NSString *email;
-@property (retain) NSString *password;
 @property (retain) NSString *phoneNumber;
 
 
 + (NSString *)parseClassName;
-//+ (User *)user;
++ (User *)user;
 
 
 @end

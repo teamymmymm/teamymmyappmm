@@ -78,25 +78,28 @@
     }
     else
     {
-        User *user = [User user];
+        User *userName = [User user];
 
-        //user.firstName = firstname;
-        //user.lastName = lastname;
-        user.email = email;
-        //user.phoneNumber = phonenumber;
-        user.password = password;
-        user.username = email;
+        userName.email = email;
+        userName.password = password;
+        userName.username = email;
+//        userName.firstName = firstname;
+//        userName.lastName = lastname;
+//        userName.phoneNumber = phonenumber;
 
 
 
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+
+
+        [userName signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (error) {
                 NSLog(@"%@", error);
 
             }
             else
             {
-                User *user = [User currentUser];
+                User *user = [User user];
                 user.firstName = firstname;
                 user.lastName = lastname;
                 user.phoneNumber = phonenumber;
