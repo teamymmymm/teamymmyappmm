@@ -10,15 +10,21 @@
 
 @implementation Restaurant
 
-@dynamic restaurantAddress;
-@dynamic restaurantBusinessHours;
-@dynamic restaurantName;
-@dynamic restaurantPhoneNumber;
-@dynamic restaurantPrimaryCategory;
+@dynamic objectId;
 @dynamic createdAt;
 @dynamic updatedAt;
-@dynamic objectId;
 @dynamic isActive;
+@dynamic name;
+@dynamic address;
+@dynamic city;
+@dynamic state;
+@dynamic zipcode;
+@dynamic primaryCuisine;
+@dynamic neighborhood;
+@dynamic rating;
+@dynamic phoneNumber;
+@dynamic businessHours1;
+@dynamic businessHours2;
 
 
 + (void)load
@@ -36,7 +42,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
 
-   // [query whereKey:@"name" co containedIn:<#(NSArray *)#>]
+    // [query whereKey:@"name" co containedIn:<#(NSArray *)#>]
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         complete(objects);
     }];

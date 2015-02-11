@@ -11,7 +11,8 @@
 		06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2461A8A8E4800D4F7EB /* Reservation.m */; };
 		06C3E24A1A8A994700D4F7EB /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2491A8A994700D4F7EB /* SignupViewController.m */; };
 		06C3E24D1A8AB2FF00D4F7EB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */; };
-		0A1BEB9A1A8BE0BB00CB1E49 /* HomefeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEB991A8BE0BB00CB1E49 /* HomefeedViewController.m */; };
+		0A1BEBA01A8BE71F00CB1E49 /* HomefeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */; };
+		0A1BEBA61A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */; };
 		0AEE06801A8A880900197CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE067F1A8A880900197CAA /* main.m */; };
 		0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06821A8A880900197CAA /* AppDelegate.m */; };
 		0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */; };
@@ -58,8 +59,10 @@
 		06C3E2491A8A994700D4F7EB /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		06C3E24B1A8AB2FF00D4F7EB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		0A1BEB981A8BE0BB00CB1E49 /* HomefeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomefeedViewController.h; sourceTree = "<group>"; };
-		0A1BEB991A8BE0BB00CB1E49 /* HomefeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomefeedViewController.m; sourceTree = "<group>"; };
+		0A1BEB9E1A8BE71F00CB1E49 /* HomefeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomefeedViewController.h; path = ../HomefeedViewController.h; sourceTree = "<group>"; };
+		0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomefeedViewController.m; path = ../HomefeedViewController.m; sourceTree = "<group>"; };
+		0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHomefeedTableViewCell.h; sourceTree = "<group>"; };
+		0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHomefeedTableViewCell.m; sourceTree = "<group>"; };
 		0AEE067A1A8A880900197CAA /* YMMYAPPMM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMMYAPPMM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE067E1A8A880900197CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE067F1A8A880900197CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,14 +156,16 @@
 		0A1BEB9D1A8BE0EC00CB1E49 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A1BEB9E1A8BE71F00CB1E49 /* HomefeedViewController.h */,
+				0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */,
+				0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */,
+				0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */,
 				06C3E2481A8A994700D4F7EB /* SignupViewController.h */,
 				06C3E2491A8A994700D4F7EB /* SignupViewController.m */,
 				06C3E24B1A8AB2FF00D4F7EB /* LoginViewController.h */,
 				06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */,
 				0AEE06871A8A880900197CAA /* ViewController.h */,
 				0AEE06881A8A880900197CAA /* ViewController.m */,
-				0A1BEB981A8BE0BB00CB1E49 /* HomefeedViewController.h */,
-				0A1BEB991A8BE0BB00CB1E49 /* HomefeedViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -349,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06C3E24A1A8A994700D4F7EB /* SignupViewController.m in Sources */,
-				0A1BEB9A1A8BE0BB00CB1E49 /* HomefeedViewController.m in Sources */,
+				0A1BEBA01A8BE71F00CB1E49 /* HomefeedViewController.m in Sources */,
 				06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */,
 				0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */,
 				0AEE06C91A8A89C300197CAA /* Restaurant.m in Sources */,
@@ -357,6 +362,7 @@
 				06C3E24D1A8AB2FF00D4F7EB /* LoginViewController.m in Sources */,
 				0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */,
 				0AEE06891A8A880900197CAA /* ViewController.m in Sources */,
+				0A1BEBA61A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m in Sources */,
 				0AEE06801A8A880900197CAA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
