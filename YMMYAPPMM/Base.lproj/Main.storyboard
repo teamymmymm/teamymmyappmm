@@ -252,4 +252,7 @@
             <point key="canvasLocation" x="1819.5" y="309"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="featuredImage1" width="400" height="170"/>
+    </resources>
 </document>
