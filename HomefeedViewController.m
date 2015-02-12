@@ -87,18 +87,6 @@
                  [cell layoutSubviews];
 
 
-                 //    UIImageView *view = cell.imageView;
-                 //
-                 //    PFFile *userImageFile = object[@"medianame"];
-                 //    [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                 //        if (!error) {
-                 //            DetailHomefeedTableViewCell *imageDetail = [DetailHomefeedTableViewCell new];
-                 //            UIImage *image = [UIImage imageWithData:data];
-                 //            UIImageView *feedPhoto = imageDetail.featuredImageView;
-                 //
-                 //            cell.featuredImageView.image = image;
-
-                 //            [cell layoutSubviews];
              }
          }
      }];
