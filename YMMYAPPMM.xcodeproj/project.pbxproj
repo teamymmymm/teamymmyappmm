@@ -13,6 +13,7 @@
 		06C3E24D1A8AB2FF00D4F7EB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */; };
 		0A1BEBA01A8BE71F00CB1E49 /* HomefeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */; };
 		0A1BEBA61A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */; };
+		0A1BEBA91A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */; };
 		0AEE06801A8A880900197CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE067F1A8A880900197CAA /* main.m */; };
 		0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06821A8A880900197CAA /* AppDelegate.m */; };
 		0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */; };
@@ -63,6 +64,8 @@
 		0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomefeedViewController.m; path = ../HomefeedViewController.m; sourceTree = "<group>"; };
 		0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHomefeedTableViewCell.h; sourceTree = "<group>"; };
 		0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHomefeedTableViewCell.m; sourceTree = "<group>"; };
+		0A1BEBA71A8D35DF00CB1E49 /* DetailRestaurantViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailRestaurantViewViewController.h; sourceTree = "<group>"; };
+		0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailRestaurantViewViewController.m; sourceTree = "<group>"; };
 		0AEE067A1A8A880900197CAA /* YMMYAPPMM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMMYAPPMM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE067E1A8A880900197CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE067F1A8A880900197CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 		0A1BEB9D1A8BE0EC00CB1E49 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A1BEBA71A8D35DF00CB1E49 /* DetailRestaurantViewViewController.h */,
+				0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */,
 				0A1BEB9E1A8BE71F00CB1E49 /* HomefeedViewController.h */,
 				0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */,
 				0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */,
@@ -358,6 +363,7 @@
 				06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */,
 				0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */,
 				0AEE06C91A8A89C300197CAA /* Restaurant.m in Sources */,
+				0A1BEBA91A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m in Sources */,
 				06C3E2441A8A8CC800D4F7EB /* User.m in Sources */,
 				06C3E24D1A8AB2FF00D4F7EB /* LoginViewController.m in Sources */,
 				0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */,

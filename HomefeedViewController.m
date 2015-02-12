@@ -10,6 +10,7 @@
 #import "DetailHomefeedTableViewCell.h"
 #import "Restaurant.h"
 #import <Parse/Parse.h>
+#import "DetailRestaurantViewViewController.h"
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -72,6 +73,18 @@
         }
     }];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailRestaurantViewViewController *vc = segue.destinationViewController;
+
+    NSIndexPath *cellIndexPath = [self.restaurantTableView indexPathForCell:sender];
+    Restaurant *restaurant = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
+    vc.fullRestaurant = restaurant;
+
+}
+
+
 
 /*------------------------------EnterText---------------------------*/
 
