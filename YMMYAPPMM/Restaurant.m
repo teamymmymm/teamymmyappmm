@@ -26,6 +26,7 @@
 @dynamic phoneNumber;
 @dynamic businessHours1;
 @dynamic businessHours2;
+@dynamic featuredImage;
 
 
 + (void)load
@@ -52,19 +53,12 @@
 + (void)retreiveRestaurantImage:(void (^)(NSArray *array))complete
 {
 
-    PFQuery *query = [PFQuery queryWithClassName:@"AmbianceImage"];
-    [query whereKey:@"restaurantName" equalTo:@"Restaurant"];
-
+    PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objectImages, NSError *error) {
         complete(objectImages);
     }];
 
-//    PFQuery *query = [PFQuery queryWithClassName:@"AmbianceImage"];
-//
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objectImages, NSError *error) {
-//        complete(objectImages);
-//
-//    }];
+
 }
 
 

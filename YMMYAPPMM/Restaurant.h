@@ -26,6 +26,7 @@
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *businessHours1;
 @property (retain) NSString *businessHours2;
+@property (retain) NSData *featuredImage;
 
 
 + (NSString *)parseClassName;

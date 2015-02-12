@@ -29,13 +29,6 @@
         self.restaurantsArray = [array mutableCopy];
         [self.restaurantTableView reloadData];
     }];
-
-    [Restaurant retreiveRestaurantImage:^(NSArray *array) {
-        self.restaurantImagesArray = [array mutableCopy];
-        [self.restaurantTableView reloadData];
-    }];
-
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -49,13 +42,17 @@
     DetailHomefeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
     PFObject *object = [self.restaurantsArray objectAtIndex:indexPath.row];
-    // PFFile *objectImages = objectImages[@"medianame"];
+
 
     NSString *name = object[@"name"];
     NSString *cuisineType = object[@"primaryCuisine"];
+    NSString *neighborhood = object[@"neighborhood"];
 
     cell.restaurantName.text = name;
     cell.cuisineType.text = cuisineType;
+    cell.neighborhoodLabel.text = neighborhood;
+
+
 
     [self downloadPhotoForPost:object andInsertInCell:cell];
 
@@ -66,30 +63,14 @@
 
 - (void)downloadPhotoForPost:(PFObject *)object andInsertInCell:(DetailHomefeedTableViewCell *)cell
 {
-
-    PFQuery *query = [PFQuery queryWithClassName:@"AmbianceImage"];
-    // Add constraints here to get the image you want (like the objectId or something else)
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-     {
-         if (!error)
-         {
-             for (PFObject *object in objects)
-             {
-                 PFFile *imageFile = object[@"medianame"];
-                 [imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error)
-                  {
-                      if (!error)
-                      {
-                          UIImage *image = [UIImage imageWithData:imageData];  // Here is your image. Put it in a UIImageView or whatever
-                          cell.featuredImageView.image = image;
-                      }
-                  }];
-                 [cell layoutSubviews];
-
-
-             }
-         }
-     }];
+    PFFile *userImageFile = object[@"featuredImage"];
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            cell.featuredImageView.image = image;
+            [cell layoutSubviews];
+        }
+    }];
 }
 
 /*------------------------------EnterText---------------------------*/

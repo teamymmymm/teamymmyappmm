@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x5M-gO-Mvb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Signup View Controller-->
@@ -171,16 +172,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KWl-JT-vNH" id="SgN-RS-IVj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-LV-po2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-LV-po2" userLabel="featuredImage">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="0.0" y="-1" width="400" height="175.5"/>
                                                     </variation>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="namebackground" translatesAutoresizingMaskIntoConstraints="NO" id="39j-Rj-hnR" userLabel="namebackground">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="112" width="400" height="62"/>
+                                                    </variation>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkN-2M-hRI">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="19" y="121" width="176" height="21"/>
@@ -199,7 +206,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neighborhood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vou-dW-yJP">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="153" y="141" width="110" height="21"/>
@@ -224,6 +231,7 @@
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="Cdg-LV-po2"/>
+                                                    <exclude reference="39j-Rj-hnR"/>
                                                     <exclude reference="gkN-2M-hRI"/>
                                                     <exclude reference="ZRm-Ro-msu"/>
                                                     <exclude reference="vou-dW-yJP"/>
@@ -234,6 +242,7 @@
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="Cdg-LV-po2"/>
+                                                    <include reference="39j-Rj-hnR"/>
                                                     <include reference="gkN-2M-hRI"/>
                                                     <include reference="ZRm-Ro-msu"/>
                                                     <include reference="vou-dW-yJP"/>
@@ -245,13 +254,11 @@
                                         <connections>
                                             <outlet property="cuisineType" destination="ZRm-Ro-msu" id="TMA-du-rkJ"/>
                                             <outlet property="featuredImageView" destination="Cdg-LV-po2" id="pZf-kC-eOb"/>
+                                            <outlet property="neighborhoodLabel" destination="vou-dW-yJP" id="NDf-UC-KlI"/>
                                             <outlet property="restaurantName" destination="gkN-2M-hRI" id="HbW-BX-5p2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="tNd-kN-9tZ" id="Pv3-CZ-hfq"/>
                                     <outlet property="delegate" destination="tNd-kN-9tZ" id="g61-c2-ukJ"/>
@@ -259,14 +266,32 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IYz-w4-MNY" firstAttribute="top" secondItem="RWh-p2-uMO" secondAttribute="topMargin" id="1GG-uP-xRf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IYz-w4-MNY" secondAttribute="trailing" constant="-16" id="Kth-MS-Yhp"/>
+                            <constraint firstItem="IYz-w4-MNY" firstAttribute="leading" secondItem="RWh-p2-uMO" secondAttribute="leadingMargin" constant="-16" id="elw-Sc-kMt"/>
+                            <constraint firstItem="NU9-Kr-JLI" firstAttribute="top" secondItem="IYz-w4-MNY" secondAttribute="bottom" id="siu-WP-TtL"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="IYz-w4-MNY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1GG-uP-xRf"/>
+                                <exclude reference="Kth-MS-Yhp"/>
+                                <exclude reference="elw-Sc-kMt"/>
+                                <exclude reference="siu-WP-TtL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="IYz-w4-MNY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1GG-uP-xRf"/>
+                                <include reference="Kth-MS-Yhp"/>
+                                <include reference="elw-Sc-kMt"/>
+                                <include reference="siu-WP-TtL"/>
                             </mask>
                         </variation>
                     </view>
@@ -408,4 +433,7 @@
             <point key="canvasLocation" x="2931" y="-200"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="namebackground" width="1136" height="62"/>
+    </resources>
 </document>
