@@ -42,11 +42,29 @@
 + (void)retreiveRestaurantCount:(void (^)(NSArray *array))complete
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
-    //[query whereKeyExists:@"name"];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         complete(objects);
 
     }];
+}
+
++ (void)retreiveRestaurantImage:(void (^)(NSArray *array))complete
+{
+
+    PFQuery *query = [PFQuery queryWithClassName:@"AmbianceImage"];
+    [query whereKey:@"restaurantName" equalTo:@"Restaurant"];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objectImages, NSError *error) {
+        complete(objectImages);
+    }];
+
+//    PFQuery *query = [PFQuery queryWithClassName:@"AmbianceImage"];
+//
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objectImages, NSError *error) {
+//        complete(objectImages);
+//
+//    }];
 }
 
 
