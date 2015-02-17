@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "User.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
@@ -33,9 +34,45 @@
 
 - (IBAction)onLoginButtonPressed:(UIButton *)sender
 {
-    NSString *email = [self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *username = [self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *password = [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
+
+
+    if ([username length] == 0 || [password length] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                        message:@"Make sure you enter a username and password."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        [User logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+            if (error)
+            {
+                NSLog(@"%@", error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:[error.userInfo objectForKey:@"error"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+            else
+            {
+                NSLog(@"Success");
+
+                User *user = [User currentUser];
+                PFUser *currentUser = [PFUser currentUser];
+
+                NSLog(@"LoginViewController - User: %@", user.username);
+                NSLog(@"LoginViewController - PFUser: %@", currentUser.username);
+
+
+            }
+
+        }];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
     
 }
 

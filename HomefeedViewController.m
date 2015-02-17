@@ -11,6 +11,7 @@
 #import "Restaurant.h"
 #import <Parse/Parse.h>
 #import "DetailRestaurantViewViewController.h"
+#import "User.h"
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -26,10 +27,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    User *currentUser = [User currentUser];
+    if (currentUser)
+    {
+        //NSLog(@"%@", user.username);
+        // NSLog(@"HomefeedViewController - User %@", currentUser.username);
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
+
     [Restaurant retreiveRestaurantCount:^(NSArray *array) {
         self.restaurantsArray = [array mutableCopy];
         [self.restaurantTableView reloadData];
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -74,14 +92,25 @@
     }];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)logoutButtonTapped:(UIBarButtonItem *)sender
 {
-    DetailRestaurantViewViewController *vc = segue.destinationViewController;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [User logOut];
+    });
+    //[User logOut];
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
+}
 
-    NSIndexPath *cellIndexPath = [self.restaurantTableView indexPathForCell:sender];
-    Restaurant *restaurant = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
-    vc.fullRestaurant = restaurant;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"cellIdentifier"])
+    {
+        DetailRestaurantViewViewController *vc = segue.destinationViewController;
 
+        NSIndexPath *cellIndexPath = [self.restaurantTableView indexPathForCell:sender];
+        Restaurant *restaurant = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
+        vc.fullRestaurant = restaurant;
+    }
 }
 
 
