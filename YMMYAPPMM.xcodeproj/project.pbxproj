@@ -11,6 +11,7 @@
 		06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2461A8A8E4800D4F7EB /* Reservation.m */; };
 		06C3E24A1A8A994700D4F7EB /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E2491A8A994700D4F7EB /* SignupViewController.m */; };
 		06C3E24D1A8AB2FF00D4F7EB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */; };
+		0A0D26DA1A92B41D00EFB9EF /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D26D91A92B41D00EFB9EF /* ConfirmationViewController.m */; };
 		0A1BEBA01A8BE71F00CB1E49 /* HomefeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */; };
 		0A1BEBA61A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */; };
 		0A1BEBA91A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */; };
@@ -60,6 +61,8 @@
 		06C3E2491A8A994700D4F7EB /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		06C3E24B1A8AB2FF00D4F7EB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		06C3E24C1A8AB2FF00D4F7EB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0A0D26D81A92B41D00EFB9EF /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
+		0A0D26D91A92B41D00EFB9EF /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		0A1BEB9E1A8BE71F00CB1E49 /* HomefeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomefeedViewController.h; path = ../HomefeedViewController.h; sourceTree = "<group>"; };
 		0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomefeedViewController.m; path = ../HomefeedViewController.m; sourceTree = "<group>"; };
 		0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHomefeedTableViewCell.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 			children = (
 				0A1BEBA71A8D35DF00CB1E49 /* DetailRestaurantViewViewController.h */,
 				0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */,
+				0A0D26D81A92B41D00EFB9EF /* ConfirmationViewController.h */,
+				0A0D26D91A92B41D00EFB9EF /* ConfirmationViewController.m */,
 				0A1BEB9E1A8BE71F00CB1E49 /* HomefeedViewController.h */,
 				0A1BEB9F1A8BE71F00CB1E49 /* HomefeedViewController.m */,
 				0A1BEBA41A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.h */,
@@ -358,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0D26DA1A92B41D00EFB9EF /* ConfirmationViewController.m in Sources */,
 				06C3E24A1A8A994700D4F7EB /* SignupViewController.m in Sources */,
 				0A1BEBA01A8BE71F00CB1E49 /* HomefeedViewController.m in Sources */,
 				06C3E2471A8A8E4800D4F7EB /* Reservation.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "DetailRestaurantViewViewController.h"
 
-@interface DetailRestaurantViewViewController ()
+@interface DetailRestaurantViewViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cuisineLabel;
@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *restaurantStateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantBusinessHours2Label;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantZipcodeLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 
@@ -28,7 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.scrollView setScrollEnabled:TRUE];
+    [self.scrollView setContentSize:CGSizeMake(320, 700)];
     [self updateLabels];
+    self.scrollView.delegate = self;
 
 }
 
@@ -46,14 +50,6 @@
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

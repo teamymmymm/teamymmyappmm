@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Restaurant.h"
 
+
 @interface SignupViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -30,7 +31,6 @@
     [super viewDidLoad];
 
 }
-
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -101,6 +101,7 @@
         }];
 
         [self.navigationController popToRootViewControllerAnimated:YES];  // go back and move into block when have time
+
 
 
     }
