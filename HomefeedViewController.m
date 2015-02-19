@@ -40,11 +40,15 @@
         [self.restaurantTableView reloadData];
     }];
 
+
+
     [FloorPlan retreiveFloorPlan:^(NSArray *array) {
         self.floorplansArray = [array mutableCopy];
+
+        NSLog(@"%@",self.floorplansArray.firstObject);
     }];
-    FloorPlan *tempfloorplan = [FloorPlan new];
-    NSLog(@"%@",tempfloorplan.maxSeats);
+
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

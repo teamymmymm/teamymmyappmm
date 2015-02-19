@@ -917,8 +917,12 @@
                         <outlet property="businessHours1Label" destination="Oxf-wv-z9o" id="nqv-HJ-gHK"/>
                         <outlet property="cuisineLabel" destination="W9o-aX-90u" id="7eU-Kc-fK9"/>
                         <outlet property="dateValueLabel" destination="wne-m4-Sch" id="obs-wP-Da7"/>
+                        <outlet property="dayLeftArrow" destination="Cvu-5m-YYP" id="H2l-DD-xSV"/>
                         <outlet property="dayOfTheWeekLabel" destination="w6Q-gW-DYV" id="xQT-O7-lh0"/>
+                        <outlet property="dayRightArrow" destination="ofO-fA-tte" id="GBD-Ns-OsI"/>
                         <outlet property="discountValueLabel" destination="SWF-CD-z7J" id="Aen-b7-WVb"/>
+                        <outlet property="personLeftArrow" destination="j9D-7f-9NX" id="h3s-bw-SoW"/>
+                        <outlet property="personRightArrow" destination="pl1-ck-QES" id="ezB-Nr-XAe"/>
                         <outlet property="personsLabel" destination="e0T-Dm-uCt" id="gJf-3O-PEm"/>
                         <outlet property="personsNumericLabel" destination="gSz-l6-WXO" id="mkw-d4-fzd"/>
                         <outlet property="restaurantAddressLabel" destination="wT6-p9-DuQ" id="XOz-Vr-LiP"/>

@@ -27,6 +27,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *discountValueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *personLeftArrow;
+@property (weak, nonatomic) IBOutlet UIButton *personRightArrow;
+@property (weak, nonatomic) IBOutlet UIButton *dayLeftArrow;
+@property (weak, nonatomic) IBOutlet UIButton *dayRightArrow;
+
+
 
 @property NSMutableArray *floorPlansArray;
 
@@ -76,7 +82,7 @@
 - (IBAction)personsLeftArrowTapped:(UIButton *)sender
 {
     // numeric persons label can only display 1 at the lowest
-
+    
 
 }
 
