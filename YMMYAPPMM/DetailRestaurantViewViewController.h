@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
+#import "FloorPlan.h"
 
 @interface DetailRestaurantViewViewController : UIViewController
 @property Restaurant *fullRestaurant;
+@property FloorPlan *fullFloorPlan;
 
 @end

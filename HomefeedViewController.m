@@ -12,11 +12,13 @@
 #import <Parse/Parse.h>
 #import "DetailRestaurantViewViewController.h"
 #import "User.h"
+#import "FloorPlan.h"
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray *restaurantsArray;
 @property NSMutableArray *restaurantImagesArray;
+@property NSMutableArray *floorplansArray;
 @property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
 
 
@@ -28,12 +30,7 @@
     [super viewDidLoad];
 
     User *currentUser = [User currentUser];
-    if (currentUser)
-    {
-        //NSLog(@"%@", user.username);
-        // NSLog(@"HomefeedViewController - User %@", currentUser.username);
-    }
-    else
+    if (!currentUser)
     {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
@@ -42,6 +39,12 @@
         self.restaurantsArray = [array mutableCopy];
         [self.restaurantTableView reloadData];
     }];
+
+    [FloorPlan retreiveFloorPlan:^(NSArray *array) {
+        self.floorplansArray = [array mutableCopy];
+    }];
+    FloorPlan *tempfloorplan = [FloorPlan new];
+    NSLog(@"%@",tempfloorplan.maxSeats);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,7 +112,11 @@
 
         NSIndexPath *cellIndexPath = [self.restaurantTableView indexPathForCell:sender];
         Restaurant *restaurant = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
+        FloorPlan *floorplan = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
         vc.fullRestaurant = restaurant;
+        vc.fullFloorPlan = floorplan;
+
+        
     }
 }
 

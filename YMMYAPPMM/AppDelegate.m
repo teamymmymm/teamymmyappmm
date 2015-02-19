@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Restaurant.h"
 #import "Reservation.h"
+#import "FloorPlan.h"
 
 @interface AppDelegate ()
 
@@ -34,6 +35,7 @@
     [User registerSubclass];
     [Restaurant registerSubclass];
     [Reservation registerSubclass];
+    [FloorPlan registerSubclass];
 
 
 
