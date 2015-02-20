@@ -513,9 +513,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="140" y="289" width="76" height="22"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wne-m4-Sch">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -532,8 +529,7 @@
                                                 <exclude reference="THb-jt-yhQ"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="182" y="317" width="23" height="20"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="0Rp-RU-w35"/>
                                                 <include reference="THb-jt-yhQ"/>

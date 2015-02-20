@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *dayLeftArrow;
 @property (weak, nonatomic) IBOutlet UIButton *dayRightArrow;
 
+@property NSString *currentDate;
+
 
 @property int personNumber;
 @property NSDate *selectedDate;
@@ -46,7 +48,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.selectedDate = [NSDate date];
+    self.selectedDate = [[NSDate date] copy];
+
+    self.currentDate = [self stringFromDate:[NSDate date]];
 
     FloorPlan *floorPlan = [FloorPlan new];
     [self.scrollView setScrollEnabled:TRUE];
@@ -105,16 +109,6 @@
     self.personsNumericLabel.text = [NSString stringWithFormat:@"%i",self.personNumber];
 }
 
-- (NSString *)stringFromDate:(NSDate *)date
-{
-    // this will allow for comparing the string values of the current date and selected date
-    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
-    [DateFormatter setDateFormat:@"MMM dd, yyyy"];
-    NSString *tempSelectedDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
-    return tempSelectedDate;
-}
-
-
 /*------------------------------IB Actions---------------------------*/
 #pragma mark - Arrow Buttons Tapped
 
@@ -151,6 +145,15 @@
     }
 }
 
+- (NSString *)stringFromDate:(NSDate *)date
+{
+    // this will allow for comparing the string values of the current date and selected date
+    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MMM dd, yyyy"];
+    NSString *tempSelectedDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    return tempSelectedDate;
+}
+
 - (IBAction)dayLeftArrowTapped:(UIButton *)sender
 {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -162,9 +165,13 @@
     NSString *tempSelectedDate = [self stringFromDate:self.selectedDate];
     NSString *tempCurrentDate = [self stringFromDate:[NSDate date]];
 
-    if ([tempSelectedDate isEqualToString:tempCurrentDate])
+    if ([tempSelectedDate isEqualToString:self.currentDate])
     {
         [self.dayLeftArrow setEnabled:NO];
+    }
+    else
+    {
+        [self.dayLeftArrow setEnabled:YES];
     }
 
     NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
