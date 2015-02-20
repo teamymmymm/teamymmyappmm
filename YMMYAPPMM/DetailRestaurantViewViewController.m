@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *dayRightArrow;
 
 
+@property int personNumber;
+@property NSDate *selectedDate;
+
 
 @property NSMutableArray *floorPlansArray;
 
@@ -42,23 +45,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.selectedDate = [NSDate date];
+
     FloorPlan *floorPlan = [FloorPlan new];
     [self.scrollView setScrollEnabled:TRUE];
     [self.scrollView setContentSize:CGSizeMake(320, 700)];
     [self updateRestaurantDetailLabels];
     self.scrollView.delegate = self;
+    [self setDayLabelToToday];
+    [self setDateLabelToToday];
 
-    int ressieperson = 2;
-    self.personsNumericLabel.text = [NSString stringWithFormat:@"%i", ressieperson];
+    [self setPersonNumericLabel:2];
 
-    [FloorPlan retreiveFloorPlan:^(NSArray *array)
-     {
-         self.floorPlansArray = [array mutableCopy];
-     }];
+    [self.dayLeftArrow setEnabled:NO];
 
-   // NSLog(@"%@",self.floorPlansArray.count);
-
-    NSLog(@"%@",floorPlan.maxSeats);
 
 }
 
@@ -74,6 +75,44 @@
     self.restaurantZipcodeLabel.text = [NSString stringWithFormat:@"%@", self.fullRestaurant.zipcode];
 }
 
+- (void)setDayLabelToToday
+{
+    NSLocale* currentLocale = [NSLocale currentLocale];
+    [self.selectedDate descriptionWithLocale:currentLocale];
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"EEEE"];
+    self.dayOfTheWeekLabel.text = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+}
+
+- (void)setDateLabelToToday
+{
+    NSLocale* currentLocale = [NSLocale currentLocale];
+    [self.selectedDate descriptionWithLocale:currentLocale];
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MMM dd, yyyy"];
+    NSString *tempDateText = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    self.dateValueLabel.text = tempDateText;
+    self.dateValueLabel.numberOfLines = 0;
+    [self.dateValueLabel sizeToFit];
+    [self.view layoutIfNeeded];
+}
+
+
+
+- (void)setPersonNumericLabel:(int)number
+{
+    self.personNumber = number;
+    self.personsNumericLabel.text = [NSString stringWithFormat:@"%i",self.personNumber];
+}
+
+- (NSString *)stringFromDate:(NSDate *)date
+{
+    // this will allow for comparing the string values of the current date and selected date
+    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MMM dd, yyyy"];
+    NSString *tempSelectedDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    return tempSelectedDate;
+}
 
 
 /*------------------------------IB Actions---------------------------*/
@@ -82,7 +121,17 @@
 - (IBAction)personsLeftArrowTapped:(UIButton *)sender
 {
     // numeric persons label can only display 1 at the lowest
-    
+
+    [self.personRightArrow setEnabled:YES];
+    if(self.personNumber > 1)
+    {
+        [self setPersonNumericLabel:self.personNumber - 1];
+
+        if(self.personNumber == 1)
+        {
+            [self.personLeftArrow setEnabled:NO];
+        }
+    }
 
 }
 
@@ -90,16 +139,72 @@
 {
     // numeric persons label maxium is 10 persons
 
+    [self.personLeftArrow setEnabled:YES];
+    if(self.personNumber < 10)
+    {
+        [self setPersonNumericLabel:self.personNumber + 1];
+
+        if(self.personNumber == 10)
+        {
+            [self.personRightArrow setEnabled:NO];
+        }
+    }
 }
 
 - (IBAction)dayLeftArrowTapped:(UIButton *)sender
 {
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    [offsetComponents setDay:-1];
+    NSDate *nextDate = [gregorian dateByAddingComponents:offsetComponents toDate:self.selectedDate options:0];
+    self.selectedDate = nextDate;
 
+    NSString *tempSelectedDate = [self stringFromDate:self.selectedDate];
+    NSString *tempCurrentDate = [self stringFromDate:[NSDate date]];
+
+    if ([tempSelectedDate isEqualToString:tempCurrentDate])
+    {
+        [self.dayLeftArrow setEnabled:NO];
+    }
+
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MMM dd,yyyy"];
+    NSString *tempDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    [DateFormatter setDateFormat:@"EEEE"];
+    NSString *tempDay = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+
+
+    self.dateValueLabel.text = tempDate;
+    self.dateValueLabel.numberOfLines = 0;
+    [self.dateValueLabel sizeToFit];
+    self.dayOfTheWeekLabel.text = tempDay;
+    self.dayOfTheWeekLabel.numberOfLines = 0;
+    [self.dayOfTheWeekLabel sizeToFit];
+    [self.view layoutIfNeeded];
 }
 
 - (IBAction)dayRightArrowTapped:(UIButton *)sender
 {
+    [self.dayLeftArrow setEnabled:YES];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    [offsetComponents setDay:1];
+    NSDate *nextDate = [gregorian dateByAddingComponents:offsetComponents toDate:self.selectedDate options:0];
+    self.selectedDate = nextDate;
 
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MMM dd,yyyy"];
+    NSString *tempDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    [DateFormatter setDateFormat:@"EEEE"];
+    NSString *tempDay = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    self.dateValueLabel.text = tempDate;
+    self.dateValueLabel.numberOfLines = 0;
+    [self.dateValueLabel sizeToFit];
+    self.dayOfTheWeekLabel.text = tempDay;
+    self.dayOfTheWeekLabel.numberOfLines = 0;
+    [self.dayOfTheWeekLabel sizeToFit];
+
+    [self.view layoutIfNeeded];
 }
 
 - (IBAction)timeLeftArrowTapped:(UIButton *)sender
@@ -109,7 +214,7 @@
 
 - (IBAction)timeRightArrowTapped:(UIButton *)sender
 {
-    
+
 }
 
 
