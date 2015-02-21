@@ -27,6 +27,7 @@
 @dynamic businessHours1;
 @dynamic businessHours2;
 @dynamic featuredImage;
+@dynamic dollarSigns;
 
 
 + (void)load

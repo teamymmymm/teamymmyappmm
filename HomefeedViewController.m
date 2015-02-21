@@ -16,16 +16,21 @@
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
+#pragma mark - View Controller IBOutlets
+/*------------------------------Table View Properties ---------------------------*/
+@property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
+
+#pragma mark - View Controller Properties
+/*------------------------------Logic Function Properties ---------------------------*/
 @property NSMutableArray *restaurantsArray;
 @property NSMutableArray *restaurantImagesArray;
 @property NSMutableArray *floorplansArray;
-@property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
-
 
 @end
 
 @implementation HomefeedViewController
 
+#pragma mark - View Did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -44,8 +49,6 @@
 
     [FloorPlan retreiveFloorPlan:^(NSArray *array) {
         self.floorplansArray = [array mutableCopy];
-
-        NSLog(@"%@",self.floorplansArray.firstObject);
     }];
 
 
