@@ -65,8 +65,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    FloorPlan *floorPlan = [FloorPlan new]; // alloc and inits new instance of FloorPlan
-
     self.selectedDate = [[NSDate date] copy]; // the first run-time to capture today's date to perform logic
 
     self.currentDate = [self stringFromDate:[NSDate date]]; // captures today's date in a string format and saves it. Will be used to compare against today's date.

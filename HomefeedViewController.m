@@ -30,7 +30,7 @@
 
 @implementation HomefeedViewController
 
-#pragma mark - View Did Load
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -43,53 +43,45 @@
     [Restaurant retreiveRestaurantCount:^(NSArray *array) {
         self.restaurantsArray = [array mutableCopy];
         [self.restaurantTableView reloadData];
-    }];
-
-
+    }]; // calls the method to retreive the count of all restaurants in database and sets that count to the restaurantsArray
 
     [FloorPlan retreiveFloorPlan:^(NSArray *array) {
         self.floorplansArray = [array mutableCopy];
-    }];
-
-
+    }]; // calls the method to retreieve the FloorPlan objects and sets them to the floorplansArray
 }
 
+#pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO]; // emables the navigation controller on the homefeed
 }
 
+#pragma mark - Table View Logic
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return self.restaurantsArray.count ;
+    return self.restaurantsArray.count ; // sets the number of rows in the tableview to the number of restaurants in the array
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailHomefeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    DetailHomefeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"]; // dequeues cell with identifier so tableview can re-use cells
 
-    PFObject *object = [self.restaurantsArray objectAtIndex:indexPath.row];
+    PFObject *object = [self.restaurantsArray objectAtIndex:indexPath.row]; // calls the attributes of each restaurant in the restaurantsarray
+    NSString *name = object[@"name"]; // sets a string varaible to the restaurant's name
+    NSString *cuisineType = object[@"primaryCuisine"]; // sets a string variable to the restuarant's cuisine type
+    NSString *neighborhood = object[@"neighborhood"]; // sets a string variable to the restaurants neighborhood
 
+    cell.restaurantName.text = name; // sets the restaurantName label's text to restaurants name
+    cell.cuisineType.text = cuisineType; // sets the cuisineType label's text to restaurants cuisine type
+    cell.neighborhoodLabel.text = neighborhood; // sets the neighborhood label's text to restaurants neighborhood
 
-    NSString *name = object[@"name"];
-    NSString *cuisineType = object[@"primaryCuisine"];
-    NSString *neighborhood = object[@"neighborhood"];
-
-    cell.restaurantName.text = name;
-    cell.cuisineType.text = cuisineType;
-    cell.neighborhoodLabel.text = neighborhood;
-
-
-
-    [self downloadPhotoForPost:object andInsertInCell:cell];
-
-
+    [self downloadPhotoForPost:object andInsertInCell:cell]; // calls the method to download the featured image of restaurant and insert as background image into cell
 
     return cell;
 }
 
+#pragma mark - Helper Methods
 - (void)downloadPhotoForPost:(PFObject *)object andInsertInCell:(DetailHomefeedTableViewCell *)cell
 {
     PFFile *userImageFile = object[@"featuredImage"];
@@ -99,18 +91,22 @@
             cell.featuredImageView.image = image;
             [cell layoutSubviews];
         }
-    }];
+    }]; // method to download the featured image of restaurant and insert as background image into cell
+
 }
 
+#pragma mark - Logout Button
 - (IBAction)logoutButtonTapped:(UIBarButtonItem *)sender
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [User logOut];
     });
-    //[User logOut];
-    [self performSegueWithIdentifier:@"showLogin" sender:self];
+    // on button tapped, the user is logged out
+
+    [self performSegueWithIdentifier:@"showLogin" sender:self]; // if the user logs out, user is sent to the main login screen
 }
 
+#pragma mark - Prepare for Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"cellIdentifier"])
@@ -119,27 +115,10 @@
 
         NSIndexPath *cellIndexPath = [self.restaurantTableView indexPathForCell:sender];
         Restaurant *restaurant = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
-        FloorPlan *floorplan = [self.restaurantsArray objectAtIndex:cellIndexPath.row];
+        FloorPlan *floorplan = [self.floorplansArray objectAtIndex:cellIndexPath.row];
         vc.fullRestaurant = restaurant;
         vc.fullFloorPlan = floorplan;
-
-        
     }
 }
-
-
-
-/*------------------------------EnterText---------------------------*/
-
-
-/*
- #pragma mark - Navigation
-
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
