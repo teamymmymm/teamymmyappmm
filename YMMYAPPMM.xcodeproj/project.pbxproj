@@ -16,6 +16,8 @@
 		0A1BEBA61A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA51A8BFD2C00CB1E49 /* DetailHomefeedTableViewCell.m */; };
 		0A1BEBA91A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */; };
 		0A40590B1A97CD41001DE8CF /* ReservationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A40590A1A97CD41001DE8CF /* ReservationCollectionViewCell.m */; };
+		0ABF89031A99B1C1005B78F8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABF89021A99B1C1005B78F8 /* Accounts.framework */; };
+		0ABF89051A99B1D3005B78F8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABF89041A99B1D3005B78F8 /* Social.framework */; };
 		0AEE06801A8A880900197CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE067F1A8A880900197CAA /* main.m */; };
 		0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06821A8A880900197CAA /* AppDelegate.m */; };
 		0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */; };
@@ -72,6 +74,8 @@
 		0A1BEBA81A8D35DF00CB1E49 /* DetailRestaurantViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailRestaurantViewViewController.m; sourceTree = "<group>"; };
 		0A4059091A97CD41001DE8CF /* ReservationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationCollectionViewCell.h; sourceTree = "<group>"; };
 		0A40590A1A97CD41001DE8CF /* ReservationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationCollectionViewCell.m; sourceTree = "<group>"; };
+		0ABF89021A99B1C1005B78F8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		0ABF89041A99B1D3005B78F8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0AEE067A1A8A880900197CAA /* YMMYAPPMM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMMYAPPMM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE067E1A8A880900197CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE067F1A8A880900197CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABF89051A99B1D3005B78F8 /* Social.framework in Frameworks */,
+				0ABF89031A99B1C1005B78F8 /* Accounts.framework in Frameworks */,
 				0AEE06BB1A8A88FF00197CAA /* libsqlite3.dylib in Frameworks */,
 				0AEE06B91A8A88F300197CAA /* libz.dylib in Frameworks */,
 				0AEE06B71A8A88E700197CAA /* SystemConfiguration.framework in Frameworks */,
@@ -248,6 +254,8 @@
 		0AEE06C61A8A894300197CAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ABF89041A99B1D3005B78F8 /* Social.framework */,
+				0ABF89021A99B1C1005B78F8 /* Accounts.framework */,
 				0AEE06BA1A8A88FF00197CAA /* libsqlite3.dylib */,
 				0AEE06B81A8A88F300197CAA /* libz.dylib */,
 				0AEE06BC1A8A893400197CAA /* Bolts.framework */,
