@@ -18,6 +18,7 @@
 		0A40590B1A97CD41001DE8CF /* ReservationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A40590A1A97CD41001DE8CF /* ReservationCollectionViewCell.m */; };
 		0ABF89031A99B1C1005B78F8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABF89021A99B1C1005B78F8 /* Accounts.framework */; };
 		0ABF89051A99B1D3005B78F8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABF89041A99B1D3005B78F8 /* Social.framework */; };
+		0ABF89071A99BF0A005B78F8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABF89061A99BF0A005B78F8 /* MessageUI.framework */; };
 		0AEE06801A8A880900197CAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE067F1A8A880900197CAA /* main.m */; };
 		0AEE06831A8A880900197CAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06821A8A880900197CAA /* AppDelegate.m */; };
 		0AEE06861A8A880900197CAA /* YMMYAPPMM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE06841A8A880900197CAA /* YMMYAPPMM.xcdatamodeld */; };
@@ -76,6 +77,7 @@
 		0A40590A1A97CD41001DE8CF /* ReservationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationCollectionViewCell.m; sourceTree = "<group>"; };
 		0ABF89021A99B1C1005B78F8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0ABF89041A99B1D3005B78F8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0ABF89061A99BF0A005B78F8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0AEE067A1A8A880900197CAA /* YMMYAPPMM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMMYAPPMM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE067E1A8A880900197CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE067F1A8A880900197CAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ABF89071A99BF0A005B78F8 /* MessageUI.framework in Frameworks */,
 				0ABF89051A99B1D3005B78F8 /* Social.framework in Frameworks */,
 				0ABF89031A99B1C1005B78F8 /* Accounts.framework in Frameworks */,
 				0AEE06BB1A8A88FF00197CAA /* libsqlite3.dylib in Frameworks */,
@@ -254,6 +257,7 @@
 		0AEE06C61A8A894300197CAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ABF89061A99BF0A005B78F8 /* MessageUI.framework */,
 				0ABF89041A99B1D3005B78F8 /* Social.framework */,
 				0ABF89021A99B1C1005B78F8 /* Accounts.framework */,
 				0AEE06BA1A8A88FF00197CAA /* libsqlite3.dylib */,

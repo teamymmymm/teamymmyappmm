@@ -13,6 +13,7 @@
 #import "DetailRestaurantViewViewController.h"
 #import "User.h"
 #import "FloorPlan.h"
+#import <MessageUI/MessageUI.h>
 
 @interface HomefeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
