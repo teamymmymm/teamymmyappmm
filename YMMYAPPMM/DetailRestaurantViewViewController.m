@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dollarSignsLabel;
 
+/*------------------------------Image Properties---------------------------*/
+@property (weak, nonatomic) IBOutlet UIImageView *restaurantImageView;
 
 
 /*------------------------------Scroll View Properties---------------------------*/
@@ -55,6 +57,12 @@
 @property NSMutableArray *floorPlansArray;
 @property NSMutableArray *floorPlanTimesArray;
 @property NSMutableArray *discountTimesArray;
+@property NSMutableArray *restaurantZuniArray;
+@property NSMutableArray *restaurant1760array;
+@property NSMutableArray *restaurantMarloweArray;
+@property NSMutableArray *restaurantMavenArray;
+@property NSMutableArray *restaurantNopaArray;
+
 
 @end
 
@@ -70,10 +78,12 @@
     self.currentDate = [self stringFromDate:[NSDate date]]; // captures today's date in a string format and saves it. Will be used to compare against today's date.
 
     [self.scrollView setScrollEnabled:TRUE]; // allows vertical scroll of content area holding the restaurant details and reservation request details
-    [self.scrollView setContentSize:CGSizeMake(320, 700)]; // sets the content size of the scrollview
+    [self.scrollView setContentSize:CGSizeMake(320, 560)]; // sets the content size of the scrollview
     self.scrollView.delegate = self; // sets the scroll view delegate to the restaurant detail view controller
 
     [self updateRestaurantDetailLabels]; // helper method to set each restaurant attribute label to proper information
+
+    [self downloadPhotoForRestaurant:self.fullRestaurant]; // gets restaurant object so that you can set the featured restaurant image
 
     [self setDayLabelToToday]; // sets the dayOfTheWeek label to today's day (ex: Thursday)
 
@@ -86,6 +96,7 @@
 
     [self populateDiscountTimesArray]; // populates the discounts array NEEDS UPDATING
 
+    [self.timesAvailableCollectionView reloadData];
 }
 
 
@@ -104,6 +115,19 @@
     self.dollarSignsLabel.text = self.fullRestaurant.dollarSigns;
     self.dollarSignsLabel.numberOfLines = 0;
     [self.dollarSignsLabel sizeToFit];
+}
+
+- (void)downloadPhotoForRestaurant:(PFObject *)object
+{
+    PFFile *userImageFile = object[@"featuredImage"];
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            self.restaurantImageView.image = image;
+            [self.view layoutSubviews];
+        }
+    }];
+
 }
 
 - (void)setDayLabelToToday
@@ -132,6 +156,7 @@
     self.floorPlanTimesArray = [[NSMutableArray alloc]initWithObjects:@"6:00pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
 
 }
+
 
 - (void)populateDiscountTimesArray
 {

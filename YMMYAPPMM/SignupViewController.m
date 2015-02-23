@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property User *user;
+@property (weak, nonatomic) IBOutlet UILabel *signUpLabel;
 
 
 @end
@@ -38,6 +39,10 @@
     [super viewWillAppear:animated];
 
     [self.navigationController setNavigationBarHidden:NO];
+
+    self.signUpLabel.numberOfLines = 5;
+    self.signUpLabel.text = @"Signing up is easy\n Eat out tonight!";
+    [self.signUpLabel sizeToFit];
 }
 
 #pragma mark - UITextField(s) -
