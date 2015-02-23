@@ -62,6 +62,11 @@
 @property NSMutableArray *restaurantMarloweArray;
 @property NSMutableArray *restaurantMavenArray;
 @property NSMutableArray *restaurantNopaArray;
+@property NSMutableArray *discountsNopaArray;
+@property NSMutableArray *discountZuniArray;
+@property NSMutableArray *discount1760Array;
+@property NSMutableArray *discountMarloweArray;
+@property NSMutableArray *discountMavenArray;
 
 
 @end
@@ -96,6 +101,8 @@
 
     [self populateDiscountTimesArray]; // populates the discounts array NEEDS UPDATING
 
+    [self logicPopulationForReservations];
+
     [self.timesAvailableCollectionView reloadData];
 }
 
@@ -115,6 +122,7 @@
     self.dollarSignsLabel.text = self.fullRestaurant.dollarSigns;
     self.dollarSignsLabel.numberOfLines = 0;
     [self.dollarSignsLabel sizeToFit];
+
 }
 
 - (void)downloadPhotoForRestaurant:(PFObject *)object
@@ -153,17 +161,42 @@
 
 
     // dummy data delete these!!
-    self.floorPlanTimesArray = [[NSMutableArray alloc]initWithObjects:@"6:00pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
+
+
+//    self.floorPlanTimesArray = [[NSMutableArray alloc]initWithObjects:@"6:00pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
+    self.restaurantZuniArray = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"6:30pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
+    self.restaurantMavenArray = [[NSMutableArray alloc]initWithObjects:@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
+    self.restaurantNopaArray = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"6:30pm",@"8:30pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
+    self.restaurantMarloweArray = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"6:30pm",@"8:30pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
+    self.
+    self.restaurant1760array = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
+    self.fullRestaurant.reservationAvailability = self.floorPlanTimesArray;
 
 }
 
 
 - (void)populateDiscountTimesArray
 {
-    self.discountTimesArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+//    self.discountTimesArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discount1760Array = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discountMarloweArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%",@"25%", nil];
+    self.discountMavenArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discountsNopaArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discountZuniArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
 }
 
+- (void)logicPopulationForReservations
+{
+    // if restaurant name isEqualto : "Marlowe"
+    // then set fullrestaurant.reservationavailability array to marlowearray
+    // then set marlowe array equal to floorplansarray
 
+    if ([self.fullRestaurant.name isEqual: @"Marlowe"])
+    {
+        self.floorPlanTimesArray = self.restaurantMarloweArray;
+        self.discountTimesArray = self.discountMarloweArray;
+    }
+}
 
 
 

@@ -28,6 +28,7 @@
 @dynamic businessHours2;
 @dynamic featuredImage;
 @dynamic dollarSigns;
+@dynamic reservationAvailability;
 
 
 + (void)load

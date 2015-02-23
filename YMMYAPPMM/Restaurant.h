@@ -28,6 +28,8 @@
 @property (retain) NSString *businessHours2;
 @property (retain) NSData *featuredImage;
 @property (retain) NSString *dollarSigns;
+@property (retain) NSMutableArray *reservationAvailability;
+
 
 
 + (NSString *)parseClassName;
