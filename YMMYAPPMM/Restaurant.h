@@ -29,6 +29,7 @@
 @property (retain) NSData *featuredImage;
 @property (retain) NSString *dollarSigns;
 @property (retain) NSMutableArray *reservationAvailability;
+@property (retain) NSString *restaurantEmail;
 
 
 

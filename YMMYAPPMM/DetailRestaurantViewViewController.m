@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "ReservationCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ConfirmationViewController.h"
+#import "Reservation.h"
 
 @interface DetailRestaurantViewViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -68,6 +70,11 @@
 @property NSMutableArray *discountMarloweArray;
 @property NSMutableArray *discountMavenArray;
 
+@property NSString *dayValue;
+@property NSString *dateValue;
+@property NSInteger personsValue;
+@property NSString *timeValue;
+
 
 @end
 
@@ -77,6 +84,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.personsValue = 2;
 
     self.selectedDate = [[NSDate date] copy]; // the first run-time to capture today's date to perform logic
 
@@ -145,6 +154,7 @@
     NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
     [DateFormatter setDateFormat:@"EEEE"];
     self.dayOfTheWeekLabel.text = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
+    self.dayValue = self.dayOfTheWeekLabel.text;
 }
 
 
@@ -208,6 +218,7 @@
     [DateFormatter setDateFormat:@"MMM dd, yyyy"];
     NSString *tempDateText = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.selectedDate]];
     self.dateValueLabel.text = tempDateText;
+    self.dateValue = self.dateValueLabel.text;
     self.dateValueLabel.numberOfLines = 0;
     [self.dateValueLabel sizeToFit];
     [self.view layoutIfNeeded];
@@ -219,6 +230,7 @@
 {
     self.personNumber = number;
     self.personsNumericLabel.text = [NSString stringWithFormat:@"%i",self.personNumber];
+    self.personsValue = [self.personsNumericLabel.text integerValue];
 }
 
 #pragma mark - Collection View Functions
@@ -233,8 +245,10 @@
     [cell.timeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     cell.timeButton.layer.cornerRadius = 10;
     cell.timeButton.clipsToBounds = YES;
-
+//    cell.timeButton.titleLabel.text = self.timeValue;
+    self.timeValue = cell.timeButton.titleLabel.text;
     cell.discountLabel.text = self.discountTimesArray[indexPath.row];
+
     return cell;
 
 }
@@ -351,17 +365,19 @@
     [self.view layoutIfNeeded];
 }
 
-- (IBAction)timeLeftArrowTapped:(UIButton *)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
 {
-
+    if ([segue.identifier isEqualToString:@"confirmationSegue"])
+    {
+        ConfirmationViewController *vc = segue.destinationViewController;
+        vc.passedRestaurantNameValue = self.restaurantNameLabel.text;
+        vc.passedDayValue = self.dayValue;
+        vc.passedDateValue = self.dateValue;
+        vc.passedPeopleValue = self.personsValue;
+        vc.passedTimeValue = sender.titleLabel.text;
+        
+    }
 }
-
-- (IBAction)timeRightArrowTapped:(UIButton *)sender
-{
-
-}
-
-
 
 
 

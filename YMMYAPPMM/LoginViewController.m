@@ -13,6 +13,17 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (weak, nonatomic) IBOutlet UILabel *dineOutMessageLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *privacyPolicyLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dineOutLabelHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dineOutLabelWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *createAccountLabelHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *createAccountLabelWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+
 @end
 
 @implementation LoginViewController
@@ -20,7 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self updateLabels];
+
 }
 
 
@@ -29,6 +41,28 @@
     [super viewWillAppear:animated];
 
     [self.navigationController setNavigationBarHidden:YES];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
+- (void)updateLabels
+{
+    self.dineOutMessageLabel.text = @"dine out at your favorite places\n at delicious prices";
+    self.dineOutMessageLabel.numberOfLines = 0;
+
+//    CGSize sizeOfDineOutLabel =  [self.dineOutMessageLabel sizeThatFits:CGSizeMake(self.dineOutMessageLabel.frame.size.width, 100)];
+//
+//    self.dineOutLabelWidthConstraint.constant = sizeOfDineOutLabel.width;
+//    self.dineOutLabelHeightConstraint.constant = sizeOfDineOutLabel.height;
+
+    self.privacyPolicyLabel.text = @"by using YMMY.CLUB, you agree to the Terms of Service and Privacy Policy";
+    self.privacyPolicyLabel.numberOfLines = 0;
+    [self.privacyPolicyLabel sizeToFit];
+
+    self.loginButton.backgroundColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
+
+    [self.view layoutSubviews];
+
 }
 
 - (IBAction)onLoginButtonPressed:(UIButton *)sender

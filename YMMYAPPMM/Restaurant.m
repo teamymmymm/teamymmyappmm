@@ -29,7 +29,7 @@
 @dynamic featuredImage;
 @dynamic dollarSigns;
 @dynamic reservationAvailability;
-
+@dynamic restaurantEmail;
 
 + (void)load
 {
