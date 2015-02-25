@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property User *user;
 @property (weak, nonatomic) IBOutlet UILabel *signUpLabel;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 
 @end
@@ -33,7 +34,6 @@
 
 }
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -43,6 +43,8 @@
     self.signUpLabel.numberOfLines = 5;
     self.signUpLabel.text = @"Signing up is easy\n Eat out tonight!";
     [self.signUpLabel sizeToFit];
+
+    self.signUpButton.backgroundColor = [UIColor colorWithRed:246/255.0 green:71/255.0 blue:71/255.0 alpha:1];
 }
 
 #pragma mark - UITextField(s) -

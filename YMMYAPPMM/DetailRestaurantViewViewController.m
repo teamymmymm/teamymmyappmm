@@ -64,7 +64,7 @@
 @property NSMutableArray *restaurantMarloweArray;
 @property NSMutableArray *restaurantMavenArray;
 @property NSMutableArray *restaurantNopaArray;
-@property NSMutableArray *discountsNopaArray;
+@property NSMutableArray *discountNopaArray;
 @property NSMutableArray *discountZuniArray;
 @property NSMutableArray *discount1760Array;
 @property NSMutableArray *discountMarloweArray;
@@ -80,6 +80,12 @@
 
 @implementation DetailRestaurantViewViewController
 
+#pragma mark - ViewWillAppear
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"GO" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
 #pragma mark - View Did Load
 
 - (void)viewDidLoad {
@@ -160,20 +166,10 @@
 
 -(void)populateTimesArray
 {
-//    self.floorPlanTimesArray = [NSMutableArray new];
-    // need to check business hours of restaurant
-    // need to get current time
-    // need to populate array with possible available times > than current time
-    // time with 30 min intervals
-
-
-    // check which time bucket the time belongs to, and get the discount rate
-
-
     // dummy data delete these!!
 
 
-//    self.floorPlanTimesArray = [[NSMutableArray alloc]initWithObjects:@"6:00pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
+    //    self.floorPlanTimesArray = [[NSMutableArray alloc]initWithObjects:@"6:00pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
     self.restaurantZuniArray = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"6:30pm",@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm", nil];
     self.restaurantMavenArray = [[NSMutableArray alloc]initWithObjects:@"7:00pm",@"7:30pm",@"9:00pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
     self.restaurantNopaArray = [[NSMutableArray alloc]initWithObjects:@"5:00pm",@"5:30pm",@"6:30pm",@"8:30pm",@"9:30pm",@"10:00pm",@"10:30pm", nil];
@@ -187,12 +183,12 @@
 
 - (void)populateDiscountTimesArray
 {
-//    self.discountTimesArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
-    self.discount1760Array = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    //    self.discountTimesArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discount1760Array = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%", nil];
     self.discountMarloweArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%",@"25%", nil];
     self.discountMavenArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
-    self.discountsNopaArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
-    self.discountZuniArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", nil];
+    self.discountNopaArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%",@"25%", nil];
+    self.discountZuniArray = [[NSMutableArray alloc]initWithObjects:@"20%",@"25%",@"25%",@"25%",@"30%",@"35%", @"20%",@"20%",nil];
 }
 
 - (void)logicPopulationForReservations
@@ -205,6 +201,26 @@
     {
         self.floorPlanTimesArray = self.restaurantMarloweArray;
         self.discountTimesArray = self.discountMarloweArray;
+    }
+    else if ([self.fullRestaurant.name isEqual: @"Zuni Café"])
+    {
+        self.floorPlanTimesArray = self.restaurantZuniArray;
+        self.discountTimesArray = self.discountZuniArray;
+    }
+    else if ([self.fullRestaurant.name isEqual: @"1760"])
+    {
+        self.floorPlanTimesArray = self.restaurant1760array;
+        self.discountTimesArray = self.discount1760Array;
+    }
+    else if ([self.fullRestaurant.name isEqual: @"Maven"])
+    {
+        self.floorPlanTimesArray = self.restaurantMavenArray;
+        self.discountTimesArray = self.discountMavenArray;
+    }
+    else if ([self.fullRestaurant.name isEqual: @"Nopa"])
+    {
+        self.floorPlanTimesArray = self.restaurantNopaArray;
+        self.discountTimesArray = self.discountNopaArray;
     }
 }
 
@@ -245,7 +261,7 @@
     [cell.timeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     cell.timeButton.layer.cornerRadius = 10;
     cell.timeButton.clipsToBounds = YES;
-//    cell.timeButton.titleLabel.text = self.timeValue;
+    //    cell.timeButton.titleLabel.text = self.timeValue;
     self.timeValue = cell.timeButton.titleLabel.text;
     cell.discountLabel.text = self.discountTimesArray[indexPath.row];
 

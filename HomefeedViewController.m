@@ -27,6 +27,8 @@
 @property NSMutableArray *restaurantImagesArray;
 @property NSMutableArray *floorplansArray;
 
+@property NSDate *todaysDate;
+
 @end
 
 @implementation HomefeedViewController
@@ -56,6 +58,10 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO]; // emables the navigation controller on the homefeed
+
+    self.todaysDate = [[NSDate date] copy];
+
+    self.navigationItem.title = [self stringFromDate:[NSDate date]];
 }
 
 #pragma mark - Table View Logic
@@ -93,7 +99,15 @@
             [cell layoutSubviews];
         }
     }]; // method to download the featured image of restaurant and insert as background image into cell
+}
 
+- (NSString *)stringFromDate:(NSDate *)date
+{
+    // this will allow for comparing the string values of the current date and selected date
+    NSDateFormatter *DateFormatter = [[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"EEE, MMM dd"];
+    NSString *tempSelectedDate = [NSString stringWithFormat:@"%@",[DateFormatter stringFromDate:self.todaysDate]];
+    return tempSelectedDate;
 }
 
 #pragma mark - Logout Button
