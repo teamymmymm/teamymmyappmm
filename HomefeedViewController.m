@@ -62,6 +62,7 @@
     self.todaysDate = [[NSDate date] copy];
 
     self.navigationItem.title = [self stringFromDate:[NSDate date]];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 #pragma mark - Table View Logic
@@ -78,10 +79,12 @@
     NSString *name = object[@"name"]; // sets a string varaible to the restaurant's name
     NSString *cuisineType = object[@"primaryCuisine"]; // sets a string variable to the restuarant's cuisine type
     NSString *neighborhood = object[@"neighborhood"]; // sets a string variable to the restaurants neighborhood
+        NSString *rating = object[@"rating"]; // sets a string variable to the restaurants rating
 
     cell.restaurantName.text = name; // sets the restaurantName label's text to restaurants name
     cell.cuisineType.text = cuisineType; // sets the cuisineType label's text to restaurants cuisine type
     cell.neighborhoodLabel.text = neighborhood; // sets the neighborhood label's text to restaurants neighborhood
+    cell.ratingLabel.text = rating; // sets the restaurants rating label's text to restaurants rating
 
     [self downloadPhotoForPost:object andInsertInCell:cell]; // calls the method to download the featured image of restaurant and insert as background image into cell
 

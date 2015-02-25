@@ -24,10 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cuisineLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *businessHours1Label;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantCityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *restaurantCityStateZipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantBusinessHours2Label;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantZipcodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personsNumericLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayOfTheWeekLabel;
@@ -83,7 +81,7 @@
 #pragma mark - ViewWillAppear
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"GO" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 #pragma mark - View Did Load
@@ -131,9 +129,7 @@
     self.restaurantAddressLabel.text = self.fullRestaurant.address;
     self.restaurantBusinessHours2Label.text = self.fullRestaurant.businessHours2;
     self.businessHours1Label.text = self.fullRestaurant.businessHours1;
-    self.restaurantCityLabel.text = self.fullRestaurant.city;
-    self.restaurantStateLabel.text = self.fullRestaurant.state;
-    self.restaurantZipcodeLabel.text = [NSString stringWithFormat:@"%@", self.fullRestaurant.zipcode];
+    self.restaurantCityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@ %@", self.fullRestaurant.city, self.fullRestaurant.state, self.fullRestaurant.zipcode];
     self.dollarSignsLabel.text = self.fullRestaurant.dollarSigns;
     self.dollarSignsLabel.numberOfLines = 0;
     [self.dollarSignsLabel sizeToFit];

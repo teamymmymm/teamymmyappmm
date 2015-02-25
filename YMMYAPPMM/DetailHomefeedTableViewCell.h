@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *restaurantName;
 @property (weak, nonatomic) IBOutlet UILabel *cuisineType;
 @property (weak, nonatomic) IBOutlet UILabel *neighborhoodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 
 @end

@@ -32,9 +32,11 @@
     self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"%ld", (long)self.passedPeopleValue];
     self.dateLabel.text = self.passedDateValue;
     self.dayLabel.text = self.passedDayValue;
-    self.timeLabel.text = self.passedTimeValue;
+//    self.timeLabel.text = self.passedTimeValue;
 
-    self.confirmationMessageLabel.text = [NSString stringWithFormat:@"Your reservation party of %@ at %@ on %@ %@ is all set. Enjoy!", [NSString stringWithFormat:@"%ld", (long)self.passedPeopleValue], [NSString stringWithFormat:@"%@", self.passedRestaurantNameValue], [NSString stringWithFormat:@"%@", self.passedDayValue], [NSString stringWithFormat:@"%@" ,self.passedDateValue] ];
+    self.confirmationMessageLabel.text = [NSString stringWithFormat:@"Your reservation party of %@ at %@ on %@ %@ %@ is all set. Enjoy!", [NSString stringWithFormat:@"%ld", (long)self.passedPeopleValue], [NSString stringWithFormat:@"%@", self.passedRestaurantNameValue], [NSString stringWithFormat:@"%@", self.passedDayValue], [NSString stringWithFormat:@"%@" ,self.passedDateValue], [NSString stringWithFormat:@"%@", self.passedTimeValue] ];
+
+
     [self customCloudCodeToSendMandrillEmail];
 }
 
