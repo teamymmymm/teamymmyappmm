@@ -45,6 +45,22 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.emailTextField) {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+
 - (void)updateLabels
 {
     self.dineOutMessageLabel.text = @"dine out at your favorite places\n at delicious prices";

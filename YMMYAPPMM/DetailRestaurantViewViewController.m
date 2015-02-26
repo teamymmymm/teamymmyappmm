@@ -83,6 +83,7 @@
 {
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self setBrandingColors]; // sets all UI view elements to have correct colors
 }
 #pragma mark - View Did Load
 
@@ -98,6 +99,7 @@
     [self.scrollView setScrollEnabled:TRUE]; // allows vertical scroll of content area holding the restaurant details and reservation request details
     [self.scrollView setContentSize:CGSizeMake(320, 560)]; // sets the content size of the scrollview
     self.scrollView.delegate = self; // sets the scroll view delegate to the restaurant detail view controller
+
 
     [self updateRestaurantDetailLabels]; // helper method to set each restaurant attribute label to proper information
 
@@ -120,7 +122,14 @@
 }
 
 
+
+
 #pragma mark - Helper Methods
+
+- (void)setBrandingColors
+{
+    self.view.backgroundColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
+}
 
 - (void)updateRestaurantDetailLabels
 {
@@ -251,10 +260,14 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ReservationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionviewcell" forIndexPath:indexPath];
+    collectionView.backgroundColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
+    cell.backgroundColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
 
     [cell.timeButton setTitle:self.floorPlanTimesArray[indexPath.row] forState:UIControlStateNormal];
-    cell.timeButton.backgroundColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
-    [cell.timeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    cell.timeButton.backgroundColor = [UIColor whiteColor];
+    cell.timeButton.titleLabel.textColor = [UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1];
+    [cell.timeButton setTitleColor:[UIColor colorWithRed:42/255.0 green:187/255.0 blue:155/255.0 alpha:1] forState:UIControlStateNormal];
     cell.timeButton.layer.cornerRadius = 10;
     cell.timeButton.clipsToBounds = YES;
     //    cell.timeButton.titleLabel.text = self.timeValue;
